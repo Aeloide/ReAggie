@@ -1,0 +1,12 @@
+packages:
+  - '.'
+
+allowBuilds:
+  '@sveltejs/kit': true
+  esbuild: true
+  import-aseprite: true
+  import-aseprite@git+https://git.coom.tech/coomdev/import-aseprite#f3f7818701ca6a733379b29d7d68db8648d1b22f: true
+  safe-gl: true
+  safe-gl@git+https://git.coom.tech/coomdev/safe-gl.git#4127cc78161469e2f14ec022e78575d58a43ce36: true
+  sharp: true
+  svelte-preprocess: true

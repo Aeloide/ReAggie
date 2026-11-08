@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resizable Emoji Container</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .resizable-container {
+        border: 3px solid #3498db;
+        background-color: #f1f9ff;
+        resize: both;
+        overflow: hidden;
+        min-width: 100px;
+        min-height: 100px;
+        width: 300px;
+        height: 150px;
+        padding: 10px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+
+        /* Enable container queries */
+        container-type: inline-size;
+        container-name: emoji-container;
+      }
+
+      .emoji-wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .emoji-content {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        white-space: nowrap;
+      }
+
+      .emoji {
+        line-height: 1;
+        display: inline-block;
+        font-size: 80cqw;
+      }
+
+      .controls {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        width: 100%;
+        max-width: 500px;
+      }
+
+      .emoji-count {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .emoji-count span {
+        width: 30px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .emoji-selector {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .emoji-option {
+        cursor: pointer;
+        font-size: 24px;
+        padding: 5px;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+      }
+
+      .emoji-option:hover {
+        background-color: #e0f0ff;
+      }
+
+      button,
+      input {
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      button:hover {
+        background-color: #e8e8e8;
+      }
+
+      #instructions {
+        margin-top: 30px;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        max-width: 500px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Resizable Emoji Container</h1>
+
+    <div class="resizable-container" id="container">
+      <div class="emoji-wrapper">
+        <div class="emoji-content emoji-count-3" id="emoji-content">
+          <div class="tw">
+            <span class="emoji">😀</span>
+          </div>
+          <div class="tw">
+            <span class="emoji">🚀</span>
+          </div>
+          <div class="tw">
+            <span class="emoji">🌈</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="emoji-count">
+        <button id="decrease">-</button>
+        <span id="count-display">3</span>
+        <button id="increase">+</button>
+        <span>emojis</span>
+      </div>
+
+      <div class="emoji-selector" id="emoji-selector">
+        <div class="emoji-option" data-emoji="😀">😀</div>
+        <div class="emoji-option" data-emoji="😎">😎</div>
+        <div class="emoji-option" data-emoji="🚀">🚀</div>
+        <div class="emoji-option" data-emoji="🌈">🌈</div>
+        <div class="emoji-option" data-emoji="🎮">🎮</div>
+        <div class="emoji-option" data-emoji="🍕">🍕</div>
+        <div class="emoji-option" data-emoji="🐱">🐱</div>
+        <div class="emoji-option" data-emoji="🐶">🐶</div>
+        <div class="emoji-option" data-emoji="🌻">🌻</div>
+        <div class="emoji-option" data-emoji="🔥">🔥</div>
+      </div>
+    </div>
+
+    <div id="instructions">
+      <p>
+        <strong>Instructions:</strong> Click and drag the bottom-right corner of the blue container to resize it. The emojis will automatically scale
+        to fit the width.
+      </p>
+    </div>
+
+    <script>
+      // Initial emoji set
+      let currentEmojis = ["😀", "🚀", "🌈"];
+      let emojiCount = 3;
+
+      const emojiContent = document.getElementById("emoji-content");
+      const countDisplay = document.getElementById("count-display");
+      const decreaseBtn = document.getElementById("decrease");
+      const increaseBtn = document.getElementById("increase");
+      const emojiSelector = document.getElementById("emoji-selector");
+
+      // Update the emoji display
+      function updateEmojis() {
+        emojiContent.innerHTML = "";
+
+        // Update container class based on emoji count
+        emojiContent.className = `emoji-content emoji-count-${emojiCount}`;
+
+        for (let i = 0; i < emojiCount; i++) {
+          const root = document.createElement("div");
+          root.className = "tw";
+          const emojiSpan = document.createElement("span");
+          emojiSpan.className = "emoji";
+          emojiSpan.textContent = currentEmojis[i % currentEmojis.length];
+          root.append(emojiSpan)
+          emojiContent.appendChild(root);
+        }
+      }
+
+      // Event listeners for emoji count buttons
+      decreaseBtn.addEventListener("click", () => {
+        if (emojiCount > 1) {
+          emojiCount--;
+          countDisplay.textContent = emojiCount;
+          updateEmojis();
+        }
+      });
+
+      increaseBtn.addEventListener("click", () => {
+        if (emojiCount < 5) {
+          emojiCount++;
+          countDisplay.textContent = emojiCount;
+          updateEmojis();
+        }
+      });
+
+      // Event delegation for emoji options
+      emojiSelector.addEventListener("click", (e) => {
+        if (e.target.classList.contains("emoji-option")) {
+          const clickedEmoji = e.target.dataset.emoji;
+
+          // Replace a random emoji in the current set
+          const randomIndex = Math.floor(Math.random() * currentEmojis.length);
+          currentEmojis[randomIndex] = clickedEmoji;
+
+          updateEmojis();
+        }
+      });
+    </script>
+  </body>
+</html>

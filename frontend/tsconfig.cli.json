@@ -1,0 +1,20 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "$lib/*": [
+                "src/lib/*"
+            ],
+            "$room/*": [
+                "src/room/*"
+            ],
+            "$backend/*": [
+                "src/backend/*"
+            ],
+            "$app/navigation": [
+                "src/scripts/mocks/app-navigation"
+            ]
+        }
+    }
+}

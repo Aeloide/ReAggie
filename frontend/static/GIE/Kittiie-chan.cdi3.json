@@ -1,0 +1,67 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "",
+			"Name": "Tail"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "",
+			"Name": "L. Hand"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "",
+			"Name": "R. Hand"
+		},
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "",
+			"Name": "Ribbon"
+		},
+		{
+			"Id": "Param",
+			"GroupId": "",
+			"Name": "Cat Ears"
+		},
+		{
+			"Id": "ParamEyeLSmile",
+			"GroupId": "",
+			"Name": "Legs"
+		},
+		{
+			"Id": "ParamEyeRSmile",
+			"GroupId": "",
+			"Name": "Position"
+		},
+		{
+			"Id": "ParamEyeBallX",
+			"GroupId": "",
+			"Name": "Tail"
+		},
+		{
+			"Id": "ParamEyeBallY",
+			"GroupId": "",
+			"Name": "Ears"
+		},
+		{
+			"Id": "Param2",
+			"GroupId": "",
+			"Name": "Blink"
+		},
+		{
+			"Id": "Param3",
+			"GroupId": "",
+			"Name": "Creppy face"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": [
+		{
+			"Id": "Part",
+			"Name": "Kittiie-chan.psd (Corresponding layer not found)"
+		}
+	]
+}

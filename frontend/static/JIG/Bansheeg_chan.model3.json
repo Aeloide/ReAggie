@@ -1,0 +1,22 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Bansheeg_chan.moc3",
+		"Textures": [
+			"Bansheeg_chan.2048/texture_00.png"
+		],
+		"DisplayInfo": "Bansheeg_chan.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		}
+	]
+}

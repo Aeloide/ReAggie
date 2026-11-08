@@ -1,0 +1,34 @@
+# Git metadata
+.git/
+
+# Dependencies
+**/node_modules/
+
+# Build artifacts
+**/dist/
+**/.svelte-kit/
+**/.vite/
+**/build/
+**/coverage/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Logs and temporary files
+*.log
+*.bak
+*.before-*
+*.test
+.DS_Store
+
+# Runtime data
+backend/assets/
+backend/comic/
+backend/replays/
+
+# Local development artifacts
+backend/a.out
+backend/dist2/

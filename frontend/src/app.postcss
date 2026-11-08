@@ -1,0 +1,276 @@
+@import url("https://fonts.googleapis.com/css2?family=Jersey+10&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 72.22% 50.59%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+@layer base {
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Makes the track 'invisible' */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5); /* Semi-transparent gray */
+  border-radius: 20px;
+  border: 2px solid transparent; /* Creates a gap effect */
+  background-clip: content-box;
+}
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input::-webkit-color-swatch {
+  border: none;
+}
+
+body {
+  @apply dark:bg-slate-950 overscroll-none;
+  background-image: radial-gradient(at 30% 0%, rgba(69 131 230 / 0.12) 0px, transparent 60%),
+    radial-gradient(at 70% 0%, rgba(184 211 255 / 0.12) 0px, transparent 60%);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+}
+
+.procbg {
+  background-size: max(33vw, 33vh);
+  background-repeat: repeat;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  top: 0;
+  z-index: -1;
+  /* i don't believe this would help but... */
+  pointer-events: none;
+}
+
+.cake {
+  cursor: url(/cake.png), auto;
+}
+
+.bugspawn {
+  cursor: url(/bugcursor.gif), auto;
+}
+
+.invert-style button.btn.variant-ghost-surface {
+  background-color: rgb(var(--color-secondary-600));
+  color: rgb(var(--color-surface-50));
+}
+
+.invert-style .variant-filled {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-inset: inset;
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(var(--color-surface-500) / var(--tw-ring-opacity));
+  background-color: rgb(var(--color-surface-500) / 0.2);
+  color: rgb(var(--color-primary-50));
+}
+
+@keyframes scroll-left-to-right {
+  0% {
+    left: 100%;
+    transform: translate(100%);
+  }
+  100% {
+    left: 0%;
+    transform: translate(-100%);
+  }
+}
+
+span.impact {
+  position: absolute;
+  pointer-events: none;
+  text-wrap: nowrap;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  animation: scroll-left-to-right 5s linear 3;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.aids {
+  position: relative;
+}
+
+.aids::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background: orange;
+  box-shadow: 0 0 10px -1px #f0cc80;
+}
+
+.xmas {
+  background-image: url(/Xmas_3.png);
+  background-size: 50%;
+  background-repeat: repeat;
+}
+
+.snow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px white;
+}
+
+.process input {
+  max-width: 100%;
+}
+
+.process,
+.process form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.process input[type="text"] {
+  border: 1px solid;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.process button,
+.process input[type="submit"] {
+  border: 1px solid;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #2d77ce;
+}
+
+.process input[disabled] {
+  content: '...';
+  background: #444;
+}
+
+.process flex {
+  display: flex;
+  width: 100%;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+progress {
+  width: 100%;
+  border: revert;
+}
+
+.emoji-mart-emoji {
+  display: contents;
+}
+
+@font-face {
+  font-family: "Comic";
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(/src/lib/assets/comic.woff) format("woff");
+}
+
+.fun {
+  font-family: "Comic Sans MS", "Comic Sans", "Comic", cursive;
+  background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 8s ease infinite;
+  background-size: 800% 800%;
+  font-size: 24px;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 25%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gay {
+  font-family: "Comic Sans MS", "Comic Sans", "Comic", cursive;
+  background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 8s ease infinite;
+  background-size: 800% 800%;
+}

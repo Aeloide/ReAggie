@@ -1,0 +1,22 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Jig-chan-Deer.moc3",
+		"Textures": [
+			"Jig-chan-Deer.1024/texture_00.png"
+		],
+		"DisplayInfo": "Jig-chan-Deer.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	]
+}

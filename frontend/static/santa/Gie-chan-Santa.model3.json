@@ -1,0 +1,22 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Gie-chan-Santa.moc3",
+		"Textures": [
+			"Gie-chan-Santa.1024/texture_00.png"
+		],
+		"DisplayInfo": "Gie-chan-Santa.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	]
+}

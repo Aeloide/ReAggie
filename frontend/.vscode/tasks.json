@@ -1,0 +1,49 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build-dev-watch",
+			"group": "build",
+			"label": "Watch",
+			"isBackground": true,
+			"problemMatcher": [
+				{
+					"owner": "external",
+					"applyTo": "allDocuments",
+					"severity": "error",
+					"source": "esbuild",
+					"fileLocation": [
+						"relative",
+						"${workspaceFolder}"
+					],
+					"background": {
+						"activeOnStart": true,
+						"beginsPattern": {
+							"regexp": "^\\[watch\\] build started"
+						},
+						"endsPattern": {
+							"regexp": "^\\[watch\\] build finished"
+						}
+					},
+					"pattern": [
+						{
+							"regexp": "^\\s*(?:.)\\s*\\[(.+)\\]\\s*(.+)$",
+							"severity": 1,
+							"message": 2
+						},
+						{
+							"regexp": "^\\s*$"
+						},
+						{
+							"regexp": "^\\s*(.+):(\\d+):(\\d+):$",
+							"file": 1,
+							"line": 2,
+							"column": 3
+						},
+					]
+				}
+			],
+		}
+	]
+}
