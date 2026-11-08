@@ -17,11 +17,9 @@ WORKDIR /app/frontend
 RUN corepack enable \
     && corepack prepare pnpm@12.15.0 --activate
 
-# Clone exact Git dependency versions
-RUN git clone https://git.coom.tech/ebin2/import-aseprite.git /tmp/import-aseprite \
-    && git -C /tmp/import-aseprite checkout f3f7818701ca6a733379b29d7d68db8648d1b22f \
-    && git clone https://git.coom.tech/ebin2/safe-gl.git /tmp/safe-gl \
-    && git -C /tmp/safe-gl checkout 4127cc78161469e2f14ec022e78575d58a43ce36
+# Use pinned local copies of external Git dependencies
+COPY vendor/import-aseprite/ /tmp/import-aseprite/
+COPY vendor/safe-gl/ /tmp/safe-gl/
 
 # Build safe-gl package (generates dist/SafeGL.js)
 RUN cd /tmp/safe-gl \
